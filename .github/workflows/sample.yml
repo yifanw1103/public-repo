@@ -31,8 +31,8 @@ jobs:
           SECRET_ORG: ${{ secrets.SECRET_DATE }}
         run: |
           mkdir sec_dir
-          echo $SECRET_REPO $SECRET_ORG
-          echo test > sec_dir/secret.txt
+          echo $SECRET_REPO $SECRET_ORG > sec_dir/secret.txt
+          # echo test > sec_dir/secret.txt
           
       - name: upload artifact
         uses: actions/upload-artifact@v3
