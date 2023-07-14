@@ -18,13 +18,101 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+#   job-1:
+#     runs-on: self-hosted
+#     env: 
+#       JOB1: "job1"
+#     steps:        
+#       - name: test1
+#         run: echo $GLOBAL $JOB1 $SECRET_REPO
+
+#       - name: test2
+#         run: echo $GLOBAL $JOB1 
+        
   job-2:
     runs-on: ubuntu-latest
     steps:
-    - name: test1 new
+    - name: test1
       env: 
         SECRET_REPO: ${{ secrets.SECRET_DATE_REPO }}
         SECRET_ORG: ${{ secrets.SECRET_DATE }}
       run: |
         echo $GLOBAL $JOB1 $SECRET_REPO > secrets.txt
         cat secrets.txt
+
+        
+
+#     - name: test2
+#       run: echo $GLOBAL $JOB1 $SECRET_REPO
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   job-1:
+#     runs-on: self-hosted
+#     runs-on: ubuntu-latest
+#     container:
+#       image: node:14.16
+#       env:
+#         NODE_ENV: development
+#       ports:
+#         - 80
+#       volumes:
+#         - /home/jack/Documents/ci-runner/github-runner/_work:/data
+#       options: --cpus 1
+#     env: 
+#       JOB1: "job1"
+#     steps:
+#       - uses: actions/checkout@v3
+      
+#       - name: Cache objects
+#         id: caching
+#         uses: actions/cache@v3
+#         with:
+#           path: /home/runner/work
+#           key:  Linux-build-
+        
+#       - if: ${{ steps.caching.outputs.cache-hit == 'true' }}
+#         name: check cache
+#         run: cat /home/runner/work
+        
+#       - name: test1
+#         run: |
+#           # echo ${{ github.workspace }}
+#           echo ${{ secrets.SECRET_DATE_REPO }} | awk 'BEGIN{FS=""; OFS=","} {$0 = tolower($0); $1=$1} 1'  
+#           # ls -R /home/runner/work
+#           # cat /home/jack/Documents/ci-runner/github-runner/_work/private-repo/private-repo/sec_dir/secret.txt
+        
+#   job-2:
+#     runs-on: self-hosted
+#     env: 
+#       SECRET_REPO: ${{ secrets.SECRET_DATE_REPO }}
+#     steps:
+#       - name: test2
+#         run: echo $GLOBAL $JOB1 $SECRET_REPO
+        
+#       - name: Hello world action step
+#         id: hello
+#         uses: Midearth-hobbiton/security-analysis@main
+#         with:
+#           credo: ${{ secrets.SECRET_DATE_REPO }}
+#       # Use the output from the `hello` step
+#       - name: Get the output time
+#         run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - uses: actions/checkout@v3
+
+      # Runs a set of commands using the runners shell
+#       - name: Run a multi-line script
+#         env: 
+#           SECRET_REPO: ${{ secrets.SECRET_DATE_REPO }}
+#           SECRET_ORG: ${{ secrets.SECRET_DATE }}
+#         run: |
+#           mkdir sec_dir
+#           echo $SECRET_REPO $SECRET_ORG > sec_dir/secret.txt  
+          
+#       - name: upload artifact
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: results
+#           path: sec_dir
